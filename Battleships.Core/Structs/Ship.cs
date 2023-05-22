@@ -2,19 +2,19 @@
 {
     public class Ship
     {
-        public Ship(ShipType shipType)
+        public Ship(ShipType shipType, Direction direction = Direction.Horizonal)
         {
             ShipType = shipType;
 
             switch (shipType)
             {
                 case ShipType.Battleship:
-                    Direction = Direction.Horizonal;
+                    Direction = direction;
                     Length = GameConsts.SizeOfBattleship;
 
                     break;
                 case ShipType.Destroyer:
-                    Direction = Direction.Horizonal;
+                    Direction = direction;
                     Length = GameConsts.SizeOfDestroyer;
 
                     break;
@@ -28,7 +28,7 @@
         public int Length { get; }
         public Direction Direction { get; private set; }
         public bool Destroyed { get; set; }
-        public IList<ShipField> ShipFields { get; set; }
+        public IList<ShipField> ShipFields { get; set; } = new List<ShipField>();
 
         public void Rotate()
         {

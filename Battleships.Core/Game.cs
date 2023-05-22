@@ -85,24 +85,31 @@ namespace Battleships.Core
             Coordinates newShipCoordinates;
             ShipField shipField;
 
-            for (var i = 0; i < ship.Length; i++)
+            if (ship.ShipFields.Any())
             {
-                switch (ship.Direction)
+                shipFields = ship.ShipFields.ToList();
+            }
+            else
+            {
+                for (var i = 0; i < ship.Length; i++)
                 {
-                    case Direction.Horizonal:
-                        newShipCoordinates = new Coordinates(coords.X + i, coords.Y);
-                        if (!CanPlaceShip(newShipCoordinates, ship)) return false;
+                    switch (ship.Direction)
+                    {
+                        case Direction.Horizonal:
+                            newShipCoordinates = new Coordinates(coords.X + i, coords.Y);
+                            if (!CanPlaceShip(newShipCoordinates, ship)) return false;
 
-                        shipField = new ShipField(newShipCoordinates, ship);
-                        shipFields.Add(shipField);
-                        break;
-                    case Direction.Vertical:
-                        newShipCoordinates = new Coordinates(coords.X, coords.Y + i);
-                        if (!CanPlaceShip(newShipCoordinates, ship)) return false;
+                            shipField = new ShipField(newShipCoordinates, ship);
+                            shipFields.Add(shipField);
+                            break;
+                        case Direction.Vertical:
+                            newShipCoordinates = new Coordinates(coords.X, coords.Y + i);
+                            if (!CanPlaceShip(newShipCoordinates, ship)) return false;
 
-                        shipField = new ShipField(newShipCoordinates, ship);
-                        shipFields.Add(shipField);
-                        break;
+                            shipField = new ShipField(newShipCoordinates, ship);
+                            shipFields.Add(shipField);
+                            break;
+                    }
                 }
             }
 

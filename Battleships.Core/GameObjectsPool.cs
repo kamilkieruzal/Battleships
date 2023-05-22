@@ -17,7 +17,7 @@ namespace Battleships.Core
                 ships.Add(new Ship(ShipType.Destroyer));
         }
 
-        public Ship TakeShip(ShipType? shipType = null)
+        public virtual Ship TakeShip(ShipType? shipType = null)
         {
             var result = shipType == null ? 
                 ships.FirstOrDefault() : 
@@ -31,7 +31,7 @@ namespace Battleships.Core
             return result;
         }
 
-        public IList<Ship> TakeAllShips()
+        public virtual IList<Ship> TakeAllShips()
         {
             var result = ships.TakeWhile(x => ships.Any()).ToList();
             ships.Clear();

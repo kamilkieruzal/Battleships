@@ -83,7 +83,7 @@ namespace Battleships.Core
         {
             var shipFields = new List<ShipField>();
             Coordinates newShipCoordinates;
-            ShipField shipField;
+            ShipField shipField = null;
 
             if (ship.ShipFields.Any())
             {
@@ -100,16 +100,15 @@ namespace Battleships.Core
                             if (!CanPlaceShip(newShipCoordinates, ship)) return false;
 
                             shipField = new ShipField(newShipCoordinates, ship);
-                            shipFields.Add(shipField);
                             break;
                         case Direction.Vertical:
                             newShipCoordinates = new Coordinates(coords.X, coords.Y + i);
                             if (!CanPlaceShip(newShipCoordinates, ship)) return false;
 
                             shipField = new ShipField(newShipCoordinates, ship);
-                            shipFields.Add(shipField);
                             break;
                     }
+                    shipFields.Add(shipField);
                 }
             }
 

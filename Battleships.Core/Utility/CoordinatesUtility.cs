@@ -42,14 +42,14 @@ namespace Battleships.Core.Utility
             return new List<Coordinates>
             {
                 coords,
-                new Coordinates(x + 1, y),
-                new Coordinates(x + 1, y + 1),
-                new Coordinates(x + 1, y - 1),
-                new Coordinates(x - 1, y),
-                new Coordinates(x + 1, y + 1),
-                new Coordinates(x + 1, y - 1),
                 new Coordinates(x, y + 1),
                 new Coordinates(x, y - 1),
+                new Coordinates(x + 1, y),
+                new Coordinates(x - 1, y),
+                new Coordinates(x - 1, y + 1),
+                new Coordinates(x + 1, y - 1),
+                new Coordinates(x + 1, y + 1),
+                new Coordinates(x - 1, y - 1),
             };
         }
 

@@ -1,6 +1,6 @@
 # Battleships
 
-Sample 'game' for interview purposes.
+Sample 'game' (1 player version) for interview purposes.
 
 Battleships - project that you should run to see result game\
 Battleships.Core - game logic and structs\
